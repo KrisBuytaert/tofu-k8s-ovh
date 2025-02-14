@@ -1,0 +1,25 @@
+
+
+This snippet sets up a K8s cluster on ovh 
+
+. ./set_env.sh
+tofu apply 
+tofu  output --raw kubeconfig  > config 
+
+
+Argo is now part of the tofu code , leveraging the helm chart 
+# setup argo 
+#kubectl create namespace argocd
+#kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+This is exposed by default by the helm chart
+# To expose argo publically 
+#kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+#or
+#kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+
+To get the argocd creds 
+argocd admin initial-password -n argocd
+
+
