@@ -1,4 +1,10 @@
 
+
+locals {
+  create_ovh_cluster = var.provider_is_ovh ? 1 : 0
+}
+
+
 resource "ovh_cloud_project_kube" "my_kube_cluster" {
    service_name = "${var.service_name}"
    name         = "my_kube_cluster"

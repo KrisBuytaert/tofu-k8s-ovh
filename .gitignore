@@ -3,3 +3,5 @@ set_env.sh
 .terraform*
 private_variables.tf
 TODO
+tmp/*
+config

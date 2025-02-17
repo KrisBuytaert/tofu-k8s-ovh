@@ -47,3 +47,9 @@ variable "enable_argocd" {
 
 
 
+
+
+variable "provider_is_ovh"  {
+    type = bool
+    default = true
+}
